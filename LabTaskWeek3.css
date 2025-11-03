@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 20px;
+}
+
+h2 {
+    color: #cc0000;
+}
+
+label {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 250px;
+    margin-bottom: 10px;
+    padding: 4px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.small-input {
+    width: 70px;
+}
+
+.notes {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.required {
+    color: red;
+}
+
+.btn-group {
+    margin-top: 15px;
+}
+
+.btn-group input {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.navigation {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.navigation b {
+    color: #cc0000;
+}
+
+.secure-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 30px;
+}
