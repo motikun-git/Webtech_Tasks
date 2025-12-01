@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form Validation</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    form {
+      width: 320px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background: #f7f7f7;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 3px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      height: 18px;
+    }
+    .success {
+      color: green;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Student Portal Registration</h2>
+
+  <form id="regForm">
+    <label>Full Name</label>
+    <input type="text" id="fullname">
+    <div class="error" id="nameError"></div>
+
+    <label>Email</label>
+    <input type="text" id="email">
+    <div class="error" id="emailError"></div>
+
+    <label>Password</label>
+    <input type="password" id="pass">
+    <div class="error" id="passError"></div>
+
+    <label>Confirm Password</label>
+    <input type="password" id="cpass">
+    <div class="error" id="cpassError"></div>
+
+    <label>Phone Number</label>
+    <input type="text" id="phone">
+    <div class="error" id="phoneError"></div>
+
+    <button type="submit">Submit</button>
+    <div class="success" id="successMsg"></div>
+  </form>
+
+  <script>
+    document.getElementById("regForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let valid = true;
+
+      document.getElementById("nameError").innerText = "";
+      document.getElementById("emailError").innerText = "";
+      document.getElementById("passError").innerText = "";
+      document.getElementById("cpassError").innerText = "";
+      document.getElementById("phoneError").innerText = "";
+      document.getElementById("successMsg").innerText = "";
+
+      let fullname = document.getElementById("fullname").value.trim();
+      if (fullname === "") {
+        document.getElementById("nameError").innerText = "Full Name required.";
+        valid = false;
+      }
+
+      let email = document.getElementById("email").value.trim();
+      if (!(email.includes("@") && email.includes("."))) {
+        document.getElementById("emailError").innerText = "Invalid email format.";
+        valid = false;
+      }
+
+      let pass = document.getElementById("pass").value.trim();
+      if (pass.length < 6) {
+        document.getElementById("passError").innerText = "Password must be 6+ characters.";
+        valid = false;
+      }
+
+      let cpass = document.getElementById("cpass").value.trim();
+      if (pass !== cpass) {
+        document.getElementById("cpassError").innerText = "Passwords do not match.";
+        valid = false;
+      }
+
+      let phone = document.getElementById("phone").value.trim();
+      if (isNaN(phone)) {
+        document.getElementById("phoneError").innerText = "Phone must be digits only.";
+        valid = false;
+      }
+
+      if (valid) {
+        document.getElementById("successMsg").innerText = "Registration Successful!";
+      }
+    });
+  </script>
+
+</body>
+</html>
